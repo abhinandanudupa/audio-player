@@ -1,0 +1,137 @@
+.audio_player {
+    display: inline-flex;
+    align-items: center;
+}
+
+.progressBar {
+    --bar-bg: beige;
+    --seek-before-width: 0%;
+    --seek-before-color: rgb(255, 203, 140);
+    --knobby: #2258ee;
+    --selectedKnobby: #26c9c3;
+  
+
+    /* progress bar - Chromium */
+    appearance: none;
+    background: var(--bar-bg);
+    border-radius: 2rem;
+    position: relative;
+    width: 100%;
+    outline: none;
+    margin: 1rem 0;
+  }
+  
+  /* progress bar - safari */
+  .progressBar::-webkit-slider-runnable-track {
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    outline: none;
+  }
+  
+  /* progress bar - firefox */
+  .progressBar::-moz-range-track {
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 1rem;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* progress bar - firefox - remove the outline */
+  .progressBar::-moz-focus-outer {
+    border: 0;
+  }
+  
+  /* progress bar - chromium and safari - progress */
+.progressBar::before {
+    content: ' ';
+    width: var(--seek-before-width);
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* progress bar - firefox - progress */
+.progressBar::-moz-range-progress {
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* knobby - chrome and safari */
+.progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: var(knobby);
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    z-index: 200;
+}
+
+/* knobby - chrome and safari - on dragging/hover */
+.progressBar:active::-webkit-slider-thumb, .progressBar:active::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background-color: var(--knobby);
+}
+
+/* knobby - firefox */
+.progressBar::-moz-range-thumb {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+    position: relative;
+    z-index: 200;
+}
+
+/* knobby - firefox - on dragging/hover */
+.progressBar:active::-moz-range-thumb, .progressBar:active::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    background-color: var(--knobby);
+}
+
+.playButtons {
+    border-radius: 9rem;
+    border: none;
+    width: 6em;
+    font-size: large;
+    padding: 1em;
+    box-shadow: none;
+    align-items: center;
+    cursor: pointer;
+    background-color: beige;
+    margin: 0.4em;
+}
+
+.playButtons:hover {
+    background-color: rgb(255, 203, 140);
+}
+
+.timeLabels {
+    width: 100%;
+    display: inline;
+}
+
+.currentProgress {
+    width: 100%;
+    color: darkslategrey;
+    font-weight: bolder;
+    font-size: 1.4em;
+    display: inline-block;
+    text-align: center;
+}
+
